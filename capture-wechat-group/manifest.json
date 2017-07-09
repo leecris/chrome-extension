@@ -1,0 +1,29 @@
+{
+  "name": "Capture Wechat Group List",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_title": "Get wechat web group list session",
+    "default_popup": "templates/popup.html",
+    "default_icon": {
+      "19": "icons/19x19.png",
+      "38": "icons/38x38.png"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+  "content_scripts" : [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["scripts/content_scripts.js"],
+      "all_frames": true,
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    "scripts/web_accessible_resources.js",
+    "scripts/content_scripts.js"
+  ]
+}
